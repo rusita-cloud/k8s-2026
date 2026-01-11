@@ -1,2 +1,2 @@
-# k8s-2026
-k8s
+# k8s
+Kubernetes

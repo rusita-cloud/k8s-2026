@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpath-pod
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: worker2
+  containers:
+  - name: hostpath-container
+    image: rusita/app:v1
+    volumeMounts:
+    - mountPath: /poddir
+      name: hostpath-vol
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: hostpath-vol
+    hostPath:
+      path: /mnt
+      type: Directory
+

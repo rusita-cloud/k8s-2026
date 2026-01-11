@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: label-app03
+  labels:
+    app: nodejs
+    environment: develop
+    release: stable
+spec:
+  containers:
+    - name: nodejs
+      image: rusita/app:v1
+      ports:
+      - containerPort: 80
+
