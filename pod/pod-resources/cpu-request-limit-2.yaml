@@ -8,10 +8,10 @@ spec:
   - name: cpu-demo-ctr-2
     image: rusita/cpu-stress
     resources:
-      limits:
-        cpu: "100"
       requests:
-        cpu: "100"
+        cpu: "10000m"
+      limits:
+        cpu: "10000m"
     args:
     - -cpus
     - "2"

@@ -3,6 +3,7 @@ kind: ReplicaSet
 metadata:
   name: rs-nginx-label
 spec:
+  replicas: 3
   selector:
     matchExpressions:
      - {key: app,operator: Exists}
@@ -17,5 +18,4 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
-  replicas: 3
 

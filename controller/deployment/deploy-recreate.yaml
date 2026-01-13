@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-nginx
+  annotations:
+    kubernetes.io/change-cause: version 1.16.0
+spec:
+  replicas: 3
+  # ---------------------------------------------------------
+  # [변경됨] 전략을 Recreate로 수정
+  # 기존 파드를 전부 삭제한 뒤에 새 파드를 생성합니다. (다운타임 발생)
+  strategy:
+    type: Recreate
+  # ---------------------------------------------------------
+  selector:
+    matchLabels:
+      app: deploy-nginx
+  template:
+    metadata:
+      labels:
+        app: deploy-nginx
+    spec:
+      containers:
+      - name: deploy-nginx
+        image: nginx:1.16.0
+        ports:
+        - containerPort: 80

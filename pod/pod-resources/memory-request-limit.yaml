@@ -8,10 +8,10 @@ spec:
   - name: memory-demo-ctr
     image: rusita/memory-stress
     resources:
-      limits:
-        memory: "200Mi"
       requests:
         memory: "100Mi"
+      limits:
+        memory: "200Mi"
     command: ["stress"]
     args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
 

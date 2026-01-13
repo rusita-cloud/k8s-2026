@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-ns
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  namespace: test-ns                # 1. 파드가 생성될 네임스페이스 지정
+spec:
+  containers:
+  - image: rusita/app:v1
+    name: app-container
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  terminationGracePeriodSeconds: 0  # 2. 종료 대기 시간 0초 (즉시 종료)

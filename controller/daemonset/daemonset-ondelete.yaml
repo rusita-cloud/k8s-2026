@@ -6,22 +6,23 @@ spec:
   selector:
     matchLabels:
       name: daemonset-app
+  # ---------------------------------------------------------
+  # [수정됨] 전략을 OnDelete로 변경
+  # 템플릿을 수정(apply)해도 파드가 자동으로 재시작되지 않습니다.
   updateStrategy:
-    type: RollingUpdate
+    type: OnDelete
+  # ---------------------------------------------------------
   template:
     metadata:
       labels:
         name: daemonset-app
     spec:
       tolerations:
-      # this toleration is to have the daemonset runnable on master nodes
-      # remove it if your masters can't run pods
       - key: node-role.kubernetes.io/control-plane
         effect: NoSchedule
       containers:
       - name: daemonset-app
         image: rusita/app:v1
         env:
-        - name: appenv 
+        - name: appenv
           value: daemonset
-

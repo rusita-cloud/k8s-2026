@@ -1,12 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app2
-  labels:
-    app: webapp2
+  name: sidecar-pod
 spec:
   containers:
-  - name: app-container2
+  - name: app-container
     image: rusita/app:v1
     ports:
     - containerPort: 80

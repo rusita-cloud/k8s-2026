@@ -2,14 +2,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-nginx
-  labels:
-    app: deploy-nginx
   annotations:
-    kubernetes.io/change-cause: version 1.16.0
+    kubernetes.io/change-cause: version 1.19.0
 spec:
   replicas: 3
   strategy:
     type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
   selector:
     matchLabels:
       app: deploy-nginx
@@ -20,7 +21,7 @@ spec:
     spec:
       containers:
       - name: deploy-nginx
-        image: nginx:1.16.0
+        image: nginx:1.19.0
         ports:
         - containerPort: 80
 
