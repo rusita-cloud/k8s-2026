@@ -4,10 +4,12 @@ metadata:
   name: loadbalancer-hostname-service
 spec:
   type: LoadBalancer
+  clusterIP: 10.96.0.111
   selector:
     app: hostname-server
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
+    nodePort: 30080
 

@@ -4,6 +4,7 @@ metadata:
   name: clusterip-hostname-service
 spec:
   type: ClusterIP
+  clusterIP: 10.96.0.100
   selector:
     app: hostname-server
   ports:

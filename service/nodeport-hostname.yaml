@@ -4,6 +4,7 @@ metadata:
   name: nodeport-hostname-service
 spec:
   type: NodePort
+  clusterIP: 10.96.0.200
   selector:
     app: hostname-server
   ports:

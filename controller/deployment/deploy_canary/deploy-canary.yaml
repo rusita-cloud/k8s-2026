@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-canary
-  labels:
-    app: webapp
-    release: beta
   annotations:
     kubernetes.io/change-cause: release beta
 spec:

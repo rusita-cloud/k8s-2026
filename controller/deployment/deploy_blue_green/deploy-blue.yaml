@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-blue
-  labels:
-    app: deploy-blue
-    release: stable
   annotations:
     kubernetes.io/change-cause: release blue
 spec:

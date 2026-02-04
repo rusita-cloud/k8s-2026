@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy-green
-  labels:
-    app: deploy-green
-    release: stable
   annotations:
     kubernetes.io/change-cause: release green 
 spec:
