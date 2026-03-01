@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: deploy-nginx
   annotations:
-    kubernetes.io/change-cause: version 1.19.0
+    kubernetes.io/change-cause: version 1.16.0
 spec:
   replicas: 3
   strategy:
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: deploy-nginx
-        image: nginx:1.19.0
+        image: nginx:1.16.0
         ports:
         - containerPort: 80
 
